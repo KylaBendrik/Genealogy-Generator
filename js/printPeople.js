@@ -5,7 +5,6 @@ function printPeople(tbody, people){
    //for each person, make a row
    people.forEach((person,index) =>{
      if (person.alive){
-       console.log(person.name, ": ", person.ordinaries.length);
        var row = document.createElement('tr');
        //make cells
        var cellId = document.createElement('td');

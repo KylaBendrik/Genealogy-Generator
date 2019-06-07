@@ -62,7 +62,7 @@ function newPerson(mother, year, gendOverwrite){
     newPerson.name =  femaleNames[Math.floor(Math.random()*femaleNames.length)];;
     if (newPerson.father > -1){
       var father = people[newPerson.father];
-      calculateBlazon(newPerson, father, people.length);
+      calculateBlazon(newPerson, father);
     }
   }
 
