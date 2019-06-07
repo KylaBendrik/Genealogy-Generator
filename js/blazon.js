@@ -57,18 +57,34 @@ function calculateBlazon(child, father){
         }
       }
     }
+
+    //generation 1
     if (child.generation === 1){
       //color
       if (child.tincture === "or"){
-        var ordColor = "gules";
+        var oColor = "gules";
       } else {
-        var ordColor = "or";
+        var oColor = "or";
       }
       //pale or/gules for second sons
-      if (father.sons.length === 2){
-        child.ordinaries.push({type: "pale", color: ordColor})
+      if (father.sons.length > 1){
+        var oType = {
+          2: "pale",
+          3: "fess",
+          4: "bend",
+          5: "flaunch",
+          6: "square flaunch",
+          7: "gore",
+          8: "chevron",
+          9: "pile",
+        }[father.sons.length];
+
+        
+
+        child.ordinaries.push({type: oType, color: oColor})
       }
-    }
+      }
+      
   }
 }
 

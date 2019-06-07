@@ -7,6 +7,7 @@ function printPeople(tbody, people){
      if (person.alive){
        var row = document.createElement('tr');
        //make cells
+       var cellGen = document.createElement('td');
        var cellId = document.createElement('td');
        var cellName = document.createElement('td');
        var cellAge = document.createElement('td');
@@ -17,6 +18,7 @@ function printPeople(tbody, people){
        var cellChildren = document.createElement('td');
        
        //fill cells
+       cellGen.appendChild(document.createTextNode(person.generation));
        cellId.appendChild(document.createTextNode(index));
        cellName.appendChild(document.createTextNode(person.name));
        cellAge.appendChild(document.createTextNode(age(person)));
@@ -32,6 +34,7 @@ function printPeople(tbody, people){
        cellChildren.appendChild(document.createTextNode(printChildren(person)));
        
        //append cells
+       row.appendChild(cellGen);
        row.appendChild(cellId);
        row.appendChild(cellName);
        row.appendChild(cellAge);

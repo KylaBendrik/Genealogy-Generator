@@ -54,7 +54,7 @@ function nextYear(n){
   }
 }
 //starting folks
-const numStart = 6;
+const numStart = 8;
 
 const tinctures = ["argent", "or", "gules", "sable", "azure", "vert", "purpure", "tenne"];
 if (year === 0){
