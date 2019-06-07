@@ -33,14 +33,15 @@ function blazon(person){
   return blazon;
 }
 
-function calculateBlazon(child, father){
+function calculateBlazon(child, father, index){
+  console.log("index should be:", people.length)
+  console.log("index is:", index);
   child.tincture = father.tincture;
   child.ordinaries = father.ordinaries;
   console.log(child.name, " is calculating Blazon:", child.tincture, child.ordinaries);
 
   if (child.gender === "male"){
     //labels for first sons, labels of 5 if father has label or/gules
-    console.log("name:", child.name, "; generation: ", child.generation)
     if (father.sons.length === 1){
       if (child.tincture === "or"){
         var labelColor = "gules";
@@ -66,7 +67,6 @@ function calculateBlazon(child, father){
       //pale or/gules for second sons
       if (father.sons.length === 2){
         console.log(child.name, " will have a pale")
-        console.log("before change:", people);
         child.ordinaries.push({type: "pale", color: ordColor})
         console.log("after change:", people)
       }
