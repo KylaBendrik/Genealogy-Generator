@@ -1,13 +1,15 @@
 
 function coatColors(tincture){
-  if (tincture === "argent"){return "#FFFFFF"};
-  if (tincture === "or"){return "#FFD700"};
-  if (tincture === "gules"){return "#FF0000"};
-  if (tincture === "sable"){return "#1D1E22"};
-  if (tincture === "azure"){return "#0000FF"};
-  if (tincture === "vert"){return "#008000"};
-  if (tincture === "purpure"){return "#800080"};
-  if (tincture === "tenne"){return "#C67000"};
+  return { 
+    "argent": "#FFFFFF",
+    "or": "#FFD700",
+    "gules": "#FF0000",
+    "sable": "#1D1E22",
+    "azure": "#0000FF",
+    "vert": "#008000",
+    "purpure": "#800080",
+    "tenne": "#C67000",
+  }[tincture];
 }
 function blazon(person){
   var tincture = person.tincture;
@@ -35,7 +37,7 @@ function blazon(person){
 
 function calculateBlazon(child, father){
   child.tincture = father.tincture;
-  child.ordinaries = father.ordinaries;
+  child.ordinaries = [...father.ordinaries];
   console.log(child.name, " is calculating Blazon:", child.tincture, child.ordinaries);
 
   if (child.gender === "male"){
