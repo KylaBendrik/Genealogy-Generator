@@ -1,6 +1,3 @@
-var year = 0;
-var people = [];
-
 function nextYear(n){
   while (n>0){
     year ++;
@@ -52,8 +49,6 @@ function nextYear(n){
     n--;
   }
 }
-
-//getting started:
 //starting folks
 const tinctures = ["argent", "or", "gules", "sable", "azure", "vert", "purpure", "tenne"];
 if (year === 0){
