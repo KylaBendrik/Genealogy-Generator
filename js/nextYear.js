@@ -13,6 +13,14 @@ function nextYear(n){
            people[person.spouse].spouse = -1;
          }
          if (person.sons.length > 0){
+          var firstSon = people[person.sons[0]];
+          //fixing the labels
+
+          //if son has SON, change son's label to label of 3
+          if (firstSon.sons.length > 0){
+            people[firstSon.sons[0]].charges[0].type = "label of 3";
+          }
+          //if son has label of 3, delete label
            people[person.sons[0]].charges.splice(0)
          }
        }
@@ -28,18 +36,15 @@ function nextYear(n){
        } //ending making babies
        //gettin hitched
        if (person.spouse === -1 && age(person) > 18 && person.gender === "male"){
-         console.log("someone's gettin hitched");
          
          var foundSpouse = false
          people.forEach((potential,potentialIndex) =>{
            if (ifEligible(person, potential) && foundSpouse === false){
              potential.spouse = index;
              person.spouse = potentialIndex;
-             console.log("they done got hitchafied");
              potential.tincture = person.tincture;
              foundSpouse = true;
            }
-           console.log("checking for ", person.name);
          });
        }
     } // ending if person is alive
@@ -52,7 +57,7 @@ function nextYear(n){
 //starting folks
 const tinctures = ["argent", "or", "gules", "sable", "azure", "vert", "purpure", "tenne"];
 if (year === 0){
-  for(i = 0; i  < 8; i++){
+  for(i = 0; i  < 16; i++){
     var fauxYear = -18 - Math.floor(Math.random() * 10)
     var gendOverwrite = i % 2;
     newPerson(false, fauxYear, gendOverwrite);

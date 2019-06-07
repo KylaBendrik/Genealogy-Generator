@@ -25,7 +25,7 @@ function printPeople(tbody, people){
        cellSpouse.appendChild(document.createTextNode(personName(person, person.spouse) + " (" + person.spouse +")"));
        cellCoat.appendChild(document.createTextNode(blazon(person)));
        cellCoat.style.backgroundColor = coatColors(person.tincture);
-       if (person.tincture === "sable"){
+       if (person.tincture === "sable" || person.tincture === "azure" || person.tincture === "purpure"){
          cellCoat.style.color = "white";
        }
        

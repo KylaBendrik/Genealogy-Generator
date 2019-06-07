@@ -29,8 +29,11 @@ function newPerson(mother, year, gendOverwrite){
     spouse: -1,
     generation: 0,
     tincture: "",
+    ordinaries: [],
     charges: [],
     sons: []};
+  
+  // is it a starter or does it have parents?
   if (mother){
     var father = people[mother.spouse]
     newPerson.father = mother.spouse;
@@ -38,24 +41,37 @@ function newPerson(mother, year, gendOverwrite){
     newPerson.tincture = father.tincture;
     newPerson.generation = father.generation ++;
   }
+
+  //gender
   var gendNum = Math.floor(Math.random()*2)
   if (gendOverwrite > -1){
     gendNum = gendOverwrite;
   }
+
+  //gender specifics
   if (gendNum === 0){
     newPerson.gender = "male";
     newPerson.name = maleNames[Math.floor(Math.random()*maleNames.length)];
     if (newPerson.father > -1){
-      people[newPerson.father].sons.push(people.length);
-      if (people[newPerson.father].sons.length === 1){
-        newPerson.charges.push({type: "label of 3", color: "or"})
+      var father = people[newPerson.father];
+      father.sons.push(people.length);
+      if (father.sons.length === 1){
+        //does father have any charges?
+        if (father.charges.length === 0){
+          newPerson.charges.push({type: "label of 3", color: "or"})
+        } else {
+          if (father.charges[0].type === "label of 3"){
+            newPerson.charges.push({type: "label of 5", color: "or"})
+          }
+        }
       }
     }
   } else {
     newPerson.gender = "female";
     newPerson.name =  femaleNames[Math.floor(Math.random()*femaleNames.length)];;
   }
-  console.log(newPerson);
+
+  //finish newPerson
   people.push(newPerson);
 }
 
@@ -66,6 +82,7 @@ function personName(person, relative){
     return people[relative].name;
   }
 }
+
 function printChildren(person){
   var printSons = [];
   for (son of person.sons){
@@ -74,8 +91,14 @@ function printChildren(person){
   return "Sons:" + printSons;
 }
 
-function matGrandF(person){
+function grandparents(person){
   var mother = people[person.mother];
-  var matGrandF = people[mother.father];
-  return matGrandF;
+  var father = people[person.father];
+  
+  var grandparents={
+    PatGF: people[father.father], 
+    PatGM: people[father.mother], 
+    MatGF: people[mother.father], 
+    MatGM: people[mother.mother]
+  }
 }
