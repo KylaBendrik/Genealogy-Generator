@@ -1,0 +1,13 @@
+#peopleTable {
+  border-collapse: collapse;
+}
+
+#peopleTable td, #peopleTable th{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#peopleTable th {
+  background-color: #1D1E22;
+  color: white;
+}
