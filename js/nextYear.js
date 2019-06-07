@@ -29,7 +29,6 @@ function nextYear(n){
        if (person.spouse >  -1 
            && person.gender === "female" 
            && age(person) < 50){
-         console.log(ifBaby);
          if (ifBaby === 0){
            newPerson(person, year);
          }
@@ -55,9 +54,11 @@ function nextYear(n){
   }
 }
 //starting folks
+const numStart = 6;
+
 const tinctures = ["argent", "or", "gules", "sable", "azure", "vert", "purpure", "tenne"];
 if (year === 0){
-  for(i = 0; i  < 16; i++){
+  for(i = 0; i  < numStart; i++){
     var fauxYear = -18 - Math.floor(Math.random() * 10)
     var gendOverwrite = i % 2;
     newPerson(false, fauxYear, gendOverwrite);

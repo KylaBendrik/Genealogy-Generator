@@ -38,8 +38,8 @@ function newPerson(mother, year, gendOverwrite){
     var father = people[mother.spouse]
     newPerson.father = mother.spouse;
     newPerson.mother = father.spouse;
-    newPerson.tincture = father.tincture;
-    newPerson.generation = father.generation ++;
+    var generationFather = father.generation
+    newPerson.generation = generationFather + 1;
   }
 
   //gender
@@ -55,20 +55,15 @@ function newPerson(mother, year, gendOverwrite){
     if (newPerson.father > -1){
       var father = people[newPerson.father];
       father.sons.push(people.length);
-      if (father.sons.length === 1){
-        //does father have any charges?
-        if (father.charges.length === 0){
-          newPerson.charges.push({type: "label of 3", color: "or"})
-        } else {
-          if (father.charges[0].type === "label of 3"){
-            newPerson.charges.push({type: "label of 5", color: "or"})
-          }
-        }
-      }
+      calculateBlazon(newPerson, father);
     }
   } else {
     newPerson.gender = "female";
     newPerson.name =  femaleNames[Math.floor(Math.random()*femaleNames.length)];;
+    if (newPerson.father > -1){
+      var father = people[newPerson.father];
+      calculateBlazon(newPerson, father);
+    }
   }
 
   //finish newPerson
