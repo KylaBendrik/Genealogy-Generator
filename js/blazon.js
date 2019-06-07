@@ -8,6 +8,7 @@ function coatColors(tincture){
   if (tincture === "purpure"){return "#800080"};
   if (tincture === "tenne"){return "#C67000"};
 }
+
 function blazon(person){
   var tincture = person.tincture;
   var charges = person.charges;
