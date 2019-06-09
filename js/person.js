@@ -2,24 +2,18 @@ var year = 0;
 var people = [];
 const maleNames = ["Adam", "Nicholas", "Simon", "Geoffrey", "Peter", "Thomas", "Gilbert", "Ralf", "Walter", "Henry", "Richard", "William", "James", "John", "Matthew", "Joseph", "Luke", "Marcus", "Joshua", "Michael" ];
 const femaleNames = ["Agnes", "Alice", "Anna", "Anne","Beatrice", "Isabella", "Joan", "Juliana", "Margery", "Catherine", "Michelle", "Annabelle", "Julia", "Mary", "Martha", "Elizabeth", "Rose", "Victoria"];
+const titles = [
+  {male: "King", female: "Queen"},
+  {male: "Prince", female: "Princess"},
+  {male: "Duke", female: "Duchess"},
+  {male: "Count", female: "Countess"},
+  {male: "Viscount", female: "Vicountess"},
+  {male: "Baron", female: "Baroness"},
+]
 
-function age(person){
-  return year-person.birth;
-}
-function ifEligible(person, potential){
-  var okAge = (age(person) / 2) + 6;
-  if (potential.spouse === -1 
-      && age(potential) > okAge 
-      && potential.gender === "female"
-      && potential.father !== person.father
-      && potential.mother !== person.mother){
-    return true;
-  } else {
-    return false;
-  }
-}
 function newPerson(mother, year, gendOverwrite){
   var newPerson = {
+    id: people.length,
     name: "", 
     birth: year, 
     gender:"", 
@@ -31,7 +25,10 @@ function newPerson(mother, year, gendOverwrite){
     tincture: "",
     ordinaries: [],
     charges: [],
-    sons: []};
+    sons: [],
+    daughters: [],
+    rank: -1,
+    estate: ""};
   
   // is it a starter or does it have parents?
   if (mother){
@@ -62,9 +59,13 @@ function newPerson(mother, year, gendOverwrite){
     newPerson.name =  femaleNames[Math.floor(Math.random()*femaleNames.length)];;
     if (newPerson.father > -1){
       var father = people[newPerson.father];
+      father.daughters.push(people.length);
       calculateBlazon(newPerson, father);
     }
   }
+
+  //rank
+  calculateRank(newPerson, people[newPerson.father], people[newPerson.mother]);
 
   //finish newPerson
   people.push(newPerson);
@@ -79,11 +80,28 @@ function personName(person, relative){
 }
 
 function printChildren(person){
-  var printSons = [];
-  for (son of person.sons){
-    printSons.push(" "+people[son].name)
+  var sons = [];
+  var daughters = [];
+  var printSons = "";
+  var printDaughters = "";
+  if (person.sons.length > 0){
+    for (son of person.sons){
+      sons.push(" "+people[son].name)
+    }
+    printSons = "Sons:" + sons
   }
-  return "Sons:" + printSons;
+  if (person.daughters.length > 0){
+    for (daughter of person.daughters){
+      daughters.push(" "+people[daughter].name)
+    }
+    if (person.sons.length > 0){
+      printDaughters = "; Daughters: " + daughters;
+    } else {
+      printDaughters = "Daughters: " + daughters;
+    }
+  }
+  
+  return printSons + printDaughters;
 }
 
 function grandparents(person){

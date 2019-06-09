@@ -1,13 +1,26 @@
-#peopleTable {
+table {
   border-collapse: collapse;
 }
 
-#peopleTable td, #peopleTable th{
+td, th{
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#peopleTable th {
+th {
   background-color: #1D1E22;
   color: white;
+}
+
+#mainDiv {
+  float: left;
+  width: 100%
+}
+#world {
+  float: left;
+  width: 400px;
+}
+#estates {
+  float: right;
+  width: calc(100% - 400px);
 }

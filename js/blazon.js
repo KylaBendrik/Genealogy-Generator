@@ -38,7 +38,6 @@ function blazon(person){
 function calculateBlazon(child, father){
   child.tincture = father.tincture;
   child.ordinaries = [...father.ordinaries];
-  console.log(child.name, " is calculating Blazon:", child.tincture, child.ordinaries);
 
   if (child.gender === "male"){
     //labels for first sons, labels of 5 if father has label or/gules
@@ -83,8 +82,31 @@ function calculateBlazon(child, father){
 
         child.ordinaries.push({type: oType, color: oColor})
       }
+    }//end gen 1
+    if (child.generation === 2){
+      //this one changes the color of the most recent ordinary by birth order
+      //argent sable azure verty purpure tenne cendree bleu-celeste
+      if (father.sons.length > 1){
+        var oColor = {
+          2: "argent",
+          3: "sable",
+          4: "azure",
+          5: "verty",
+          6: "purpure",
+          7: "tenne",
+          8: "cendree",
+          9: "bleu-celeste",
+        }[father.sons.length];
+        var recentOrd = child.ordinaries.length -1
+        if (recentOrd < 0){
+          oType = "chief";
+          child.ordinaries.push({type: oType, color: oColor})
+        } else {
+          child.ordinaries[recentOrd].color = oColor;
+        }
       }
-      
+
+    }
   }
 }
 

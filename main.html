@@ -5,18 +5,34 @@
     </title>
   </head>
   <body>
-    <h2>
-      <p id="year"></p>
-    </h2>
-    <button id="1" onclick="nextYear(1)">Next Year</button>
-    <button id="5" onclick="nextYear(5)">5 Years</button>
-    <button id="10" onclick="nextYear(10)">10 Years</button>
-    
+    <div id="world">
+      <h2>
+        <p id="year"></p>
+      </h2>
+      <button id="1" onclick="nextYear(1)">Next Year</button>
+      <button id="5" onclick="nextYear(5)">5 Years</button>
+      <button id="10" onclick="nextYear(10)">10 Years</button>
+    </div>
+
+    <div id="estates">
+      <table id="estateTable">
+        <thead>
+          <th>Estate</th>
+          <th>Lord</th>
+          <th>Heir</th>
+          <th>Acreage</th>
+        </thead>
+        <tbody id="estatesTbody"></tbody>
+      </table>
+    </div>
+
+    <div id="mainDiv">
     <table id="peopleTable">
       <thead>   
         <tr>
           <th>Gen</th>
           <th>ID</th>
+          <th>Title</th>
           <th>Name</th>
           <th>Age</th>
           <th>Father</th>
@@ -28,10 +44,12 @@
       </thead>
       <tbody id="peopleTbody"></tbody>
     </table>
-    
+    </div>
+    <script src="js/estates.js"></script>
+    <script src="js/peopleTools.js"></script>
     <script src="js/person.js"></script>
     <script src="js/blazon.js"></script>
-    <script src="js/printPeople.js"></script>
+    <script src="js/printTools.js"></script>
     <script src="js/nextYear.js"></script>
   </body>
 </html>

@@ -6,24 +6,16 @@ function nextYear(n){
     //do things to people
     people.forEach((person,index) =>{
      if (person.alive){
-       //all things come to an end
-       if (age(person) === 65){
-         person.alive = false;
-         if (person.spouse >  -1){
-           people[person.spouse].spouse = -1;
-         }
-         if (person.sons.length > 0){
-          var firstSon = people[person.sons[0]];
-          //fixing the labels
+        //all things come to an end
+        var ifDie = Math.floor(Math.random() * 50);
 
-          //if son has SON, change son's label to label of 3
-          if (firstSon.sons.length > 0){
-            people[firstSon.sons[0]].charges[0].type = "label of 3";
-          }
-          //if son has label of 3, delete label
-           people[person.sons[0]].charges.splice(0)
-         }
-       }
+        if (age(person) > 25 && ifDie < 2){
+          console.log(person.name + " WILL DIE")
+          die(person);
+        }
+        if (age(person) === 65 && ifDie < 3){
+          die(person)
+        }
        //make feet for baby shoes
        var ifBaby = Math.floor(Math.random() * 6);
        if (person.spouse >  -1 
@@ -35,26 +27,32 @@ function nextYear(n){
        } //ending making babies
        //gettin hitched
        if (person.spouse === -1 && age(person) > 18 && person.gender === "male"){
-         
+        console.log(person.name + " is eligible and unmarried")
          var foundSpouse = false
          people.forEach((potential,potentialIndex) =>{
            if (ifEligible(person, potential) && foundSpouse === false){
              potential.spouse = index;
              person.spouse = potentialIndex;
              potential.tincture = person.tincture;
+             if (person.rank < potential.rank){
+               potential.rank = person.rank;
+             }
              foundSpouse = true;
            }
          });
        }
     } // ending if person is alive
     });
-    tbody = document.getElementById("peopleTbody");
-    printPeople(tbody, people);
+    peopleTbody = document.getElementById("peopleTbody");
+    printPeople(peopleTbody, people);
+    estatesTbody = document.getElementById("estatesTbody");
+    printEstates(estatesTbody, estates);
     n--;
   }
 }
 //starting folks
-const numStart = 8;
+const numStart = 4;
+const consangLimit = numStart/4;
 
 const tinctures = ["argent", "or", "gules", "sable", "azure", "vert", "purpure", "tenne"];
 if (year === 0){
@@ -67,10 +65,21 @@ if (year === 0){
     } else{
       people[i].spouse = i+1;
     }
+    if (i === 0 || i === 1){
+      people[i].rank = 0;
+    }
+    if (i > 1){
+      people[i].rank = 2;
+    }
     people[i].tincture = tinctures[Math.floor(i/2)];
   }
   year ++;
+  console.log("people should be set")
 }
-tbody = document.getElementById("peopleTbody");
-printPeople(tbody, people);
+peopleTbody = document.getElementById("peopleTbody");
+printPeople(peopleTbody, people);
+initiateEstates(numStart);
+estatesTbody = document.getElementById("estatesTbody");
+printEstates(estatesTbody, estates);
+
 document.getElementById("year").innerHTML = "Year: " + year;
