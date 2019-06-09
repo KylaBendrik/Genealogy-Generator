@@ -3,8 +3,8 @@ const estateNames1 = ["Falcon", "Crystal", "Maple", "Deer", "Starry", "Grey", "G
 const estateNames2 = ["meadow", "field", "lake", "acre", "gold", "river", "hedge", "wood"];
 
 function newEstateName(){
-  var one = estateNames1[Math.floor(Math.random * estateNames1.length)]
-  var two = estateNames2[Math.floor(Math.random * estateNames2.length)]
+  var one = estateNames1[Math.floor(Math.random() * estateNames1.length)]
+  var two = estateNames2[Math.floor(Math.random() * estateNames2.length)]
   console.log(estateNames2.length)
   return one + two;
 }
