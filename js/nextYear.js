@@ -43,6 +43,8 @@ function nextYear(n){
        }
     } // ending if person is alive
     });
+    
+    growEstates(estates);
     peopleTbody = document.getElementById("peopleTbody");
     printPeople(peopleTbody, people);
     estatesTbody = document.getElementById("estatesTbody");
@@ -50,6 +52,8 @@ function nextYear(n){
     n--;
   }
 }
+
+
 //starting folks
 const numStart = 4;
 const consangLimit = numStart/4;
