@@ -28,7 +28,7 @@ function newPerson(mother, year, gendOverwrite){
     sons: [],
     daughters: [],
     rank: -1,
-    estate: ""};
+    estate: -1};
   
   // is it a starter or does it have parents?
   if (mother){

@@ -15,6 +15,7 @@ function printPeople(tbody, people){
       var cellFather = document.createElement('td');
       var cellMother = document.createElement('td');
       var cellSpouse = document.createElement('td');
+      var cellEstate = document.createElement('td');
       var cellCoat = document.createElement('td');
       var cellChildren = document.createElement('td');
       
@@ -27,6 +28,7 @@ function printPeople(tbody, people){
       cellFather.appendChild(document.createTextNode(title(people[person.father]) + " " + personName(person, person.father)));
       cellMother.appendChild(document.createTextNode(personName(person, person.mother)));
       cellSpouse.appendChild(document.createTextNode(personName(person, person.spouse) + " (" + person.spouse +")"));
+      cellEstate.appendChild(document.createTextNode(printEstate(person)));
       cellCoat.appendChild(document.createTextNode(blazon(person)));
       cellCoat.style.backgroundColor = coatColors(person.tincture);
       if (person.tincture === "sable" || person.tincture === "azure" || person.tincture === "purpure"){
@@ -44,6 +46,7 @@ function printPeople(tbody, people){
       row.appendChild(cellFather);
       row.appendChild(cellMother);
       row.appendChild(cellSpouse);
+      row.appendChild(cellEstate);
       row.appendChild(cellCoat);
       row.appendChild(cellChildren);
       

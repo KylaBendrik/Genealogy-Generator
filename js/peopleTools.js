@@ -99,6 +99,7 @@ function inherit(person){
     estates[person.estate].lord = heir;
   }
 }
+
 function die(person){
   //person is no longer alive
   console.log("person is no longer alive");
@@ -112,6 +113,7 @@ function die(person){
   }
   console.log("person's spouse is now unmarried")
 }
+
 function title(person){
   if (person === undefined){
     return "";
