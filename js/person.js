@@ -49,19 +49,11 @@ function newPerson(mother, year, gendOverwrite){
   if (gendNum === 0){
     newPerson.gender = "male";
     newPerson.name = maleNames[Math.floor(Math.random()*maleNames.length)];
-    if (newPerson.father > -1){
-      var father = people[newPerson.father];
-      father.sons.push(people.length);
-      calculateBlazon(newPerson, father, people.length);
-    }
+    parentage(newPerson);
   } else {
     newPerson.gender = "female";
     newPerson.name =  femaleNames[Math.floor(Math.random()*femaleNames.length)];;
-    if (newPerson.father > -1){
-      var father = people[newPerson.father];
-      father.daughters.push(people.length);
-      calculateBlazon(newPerson, father);
-    }
+    parentage(newPerson);
   }
 
   //rank

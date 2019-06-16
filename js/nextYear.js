@@ -7,10 +7,10 @@ function nextYear(n){
     people.forEach((person,index) =>{
      if (person.alive){
         //all things come to an end
-        var ifDie = Math.floor(Math.random() * 50);
+        var ifDie = Math.floor(Math.random() * 100);
 
         if (age(person) > 25 && ifDie < 2){
-          console.log(person.name + " WILL DIE")
+          console.log(person.name + "(" + person.id + ") WILL DIE")
           die(person);
         }
         if (age(person) === 65 && ifDie < 3){
@@ -36,6 +36,9 @@ function nextYear(n){
              potential.tincture = person.tincture;
              if (person.rank < potential.rank){
                potential.rank = person.rank;
+             }
+             if (potential.estates !== []){
+               //split shields
              }
              foundSpouse = true;
            }

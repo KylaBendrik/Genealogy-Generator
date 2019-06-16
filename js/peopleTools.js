@@ -5,7 +5,6 @@ function age(person){
 function ifEligible(person, potential){
   var okAgePerson = (age(person) / 4) + 7;
   var okAgePotential = (age(potential) / 4) + 7;
-  console.log(okAgePerson + ", " + okAgePotential)
   if (potential.spouse === -1 
       && age(potential) > okAgePerson
       && age(person) > okAgePotential
@@ -14,6 +13,17 @@ function ifEligible(person, potential){
     return true;
   } else {
     return false;
+  }
+}
+function parentage(person){
+  if (person.father > -1){
+    var father = people[person.father];
+    father.daughters.push(people.length);
+    calculateBlazon(person, father);
+  }
+  if (person.mother > -1){
+    var mother = people[person.mother];
+    mother.daughters.push(people.length);
   }
 }
 function raiseRank(person){

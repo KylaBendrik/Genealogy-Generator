@@ -11,6 +11,7 @@ function newEstateName(){
 
 function findKingsEstate(){
   for (estate of estates){
+    console.log(estate);
     if (people[estate.lord].rank === 0){
       return estate
     }
@@ -66,5 +67,26 @@ function printEstate(person){
     return estates[person.estate].name;
   } else {
     return "";
+  }
+}
+
+function splitEstate(estate){
+  var lord = people[estate.lord];
+  //look at how many sons the lord has
+  var heirs = [];
+  for (son of lord.sons){
+    if (people[son].alive){
+      heirs.push(son)
+    }
+  }
+  var n = heirs.length
+  while (n > 1){
+    var acreage = estate.acreage / Math.pow(2, n);
+    newEstate(people[heirs[n]],acreage)
+    estate.acreage - acreage;
+  } 
+  if (n === 0) {
+    people[heirs[0]].estate = estate;
+    estate.lord = heirs[0];
   }
 }
