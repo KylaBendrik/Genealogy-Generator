@@ -1,4 +1,4 @@
-function consanguity(person, potential){
+function consanguinity(person, potential){
   //same person
   if (person.id === potential.id){
     console.log (person.id + ", " + potential.id + ": " + 0)

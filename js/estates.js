@@ -54,7 +54,7 @@ function growEstates(estates){
 }
 
 function printEstate(person){
-  if (person.estate > 0){
+  if (person.estate > -1){
     return estates[person.estate].name;
   } else {
     return "";

@@ -31,6 +31,10 @@ function inherit(person){
   if (heir === undefined){
     //find estate with highest ranking lord (should be king or queen)
     var kingsEstate = findKingsEstate()
+    //if kingsEstate IS the estate being messed up, assign to highest ranking lord
+    if (kingsEstate.id === estate.id){
+      
+    }
     //assign acreage tp king's estate
     kingsEstate.acreage += estate.acreage
     //assign estate's active status to false

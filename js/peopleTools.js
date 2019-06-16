@@ -10,7 +10,7 @@ function ifEligible(person, potential){
       && age(potential) > okAgePerson
       && age(person) > okAgePotential
       && potential.gender === "female"
-      && consanguity(person, potential) > consangLimit){
+      && consanguinity(person, potential) > consangLimit){
     return true;
   } else {
     return false;
@@ -48,8 +48,9 @@ function die(person){
   //person's spouse is now unmarried
   if (person.spouse >  -1){
     people[person.spouse].spouse = -1;
+    console.log("person's spouse is now unmarried")
   }
-  console.log("person's spouse is now unmarried")
+
 }
 
 function title(person){

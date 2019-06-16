@@ -80,9 +80,10 @@ if (year === 0){
   year ++;
   console.log("people should be set")
 }
+
+initiateEstates(numStart);
 peopleTbody = document.getElementById("peopleTbody");
 printPeople(peopleTbody, people);
-initiateEstates(numStart);
 estatesTbody = document.getElementById("estatesTbody");
 printEstates(estatesTbody, estates);
 
