@@ -24,8 +24,19 @@ function findHeir(person){
   console.log("There is no heir")
 }
 
+
 function inherit(person){
   var heir = people[findHeir(person)];
+  var estate = estates[person.estate];
+  if (heir === undefined){
+    //find estate with highest ranking lord (should be king or queen)
+    var kingsEstate = findKingsEstate()
+    //assign acreage tp king's estate
+    kingsEstate.acreage += estate.acreage
+    //assign estate's active status to false
+    estate.active = false
+  }
+  
   if (person.estate !== -1){
     //If labels, then fix:
     if (person.sons.length > 0){
@@ -46,9 +57,9 @@ function inherit(person){
     //estates - if there's only one son, or some other heir, then just assign. Otherwise, split estate
     if (person.sons.length < 2){
       heir.estate = person.estate;
-      estates[person.estate].lord = heir;
+      estate.lord = heir.id;
     } else {
-      splitEstate(estates[person.estate])
+      splitEstate(estate)
     }
   }
 }

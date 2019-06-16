@@ -67,7 +67,8 @@ var newTbody = document.createElement('tbody');
 
 //for each person, make a row
 estates.forEach((estate) =>{
-    console.log(estates);
+    if (estate.active){
+      
     var row = document.createElement('tr');
 
     //make cells
@@ -89,6 +90,7 @@ estates.forEach((estate) =>{
     row.appendChild(cellAcreage);
     
     newTbody.appendChild(row);
+    }
     
   });
   

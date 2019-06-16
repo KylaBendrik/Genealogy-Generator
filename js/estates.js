@@ -9,6 +9,15 @@ function newEstateName(){
   return one + two;
 }
 
+function findKingsEstate(){
+  for (estate of estates){
+    if (people[estate.lord].rank === 0){
+      return estate
+    }
+  }
+  return undefined
+}
+
 function initiateEstates(startNum){
   var startingEstates = startNum/2
   console.log (startNum + ", so should be " + startingEstates)
@@ -28,6 +37,7 @@ function newEstate(lord,acreage){
     lord: lord.id,
     heir: heir,
     acreage: acreage,
+    active: true
   }
   lord.estate = newEstate.id
   estates.push(newEstate)
