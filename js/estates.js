@@ -13,12 +13,12 @@ function initiateEstates(startNum){
   var startingEstates = startNum/2
   console.log (startNum + ", so should be " + startingEstates)
   for (i=0; i < startingEstates; i++){
-    newEstate(people[i*2]);
+    newEstate(people[i*2], 30);
   }
   console.log(estates);
 }
 
-function newEstate(lord){
+function newEstate(lord,acreage){
   console.log("Assigning new estate to: " + lord.name)
   var heir = findHeir(lord)
   var name = newEstateName();
@@ -27,7 +27,7 @@ function newEstate(lord){
     name: name,
     lord: lord.id,
     heir: heir,
-    acreage: 30,
+    acreage: acreage,
   }
   lord.estate = newEstate.id
   estates.push(newEstate)

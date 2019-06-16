@@ -67,6 +67,7 @@ var newTbody = document.createElement('tbody');
 
 //for each person, make a row
 estates.forEach((estate) =>{
+    console.log(estates);
     var row = document.createElement('tr');
 
     //make cells
