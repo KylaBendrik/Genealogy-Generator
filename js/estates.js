@@ -17,6 +17,14 @@ function findKingsEstate(){
   }
   return undefined
 }
+function findEstateByRank(rank){
+  for (estate of estates){
+    if (people[estate.lord].rank === rank){
+      return estate
+    }
+  }
+  return undefined
+}
 
 function initiateEstates(startNum){
   var startingEstates = startNum/2
