@@ -18,12 +18,20 @@ function ifEligible(person, potential){
 function parentage(person){
   if (person.father > -1){
     var father = people[person.father];
-    father.daughters.push(people.length);
+    if (person.gender === "female"){
+      father.daughters.push(people.length);
+    } else {
+      father.sons.push(people.length);
+    }
     calculateBlazon(person, father);
   }
   if (person.mother > -1){
     var mother = people[person.mother];
-    mother.daughters.push(people.length);
+    if (person.gender === "female"){
+      mother.daughters.push(people.length);
+    } else {
+      mother.sons.push(people.length);
+    }
   }
 }
 function raiseRank(person){

@@ -14,4 +14,8 @@ describe('Blazon', () => {
 
     expect(blazon(person)).toEqual('or, a pale argent');
   });
+
+  // it('formats a coat with a divided field with both sides having their own charges: ', ( => {
+
+  // }))
 });

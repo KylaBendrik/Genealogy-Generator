@@ -58,7 +58,7 @@ function nextYear(n){
 
 
 //starting folks
-const numStart = 4;
+const numStart = 8;
 const consangLimit = numStart/4;
 
 const tinctures = ["argent", "or", "gules", "sable", "azure", "vert", "purpure", "tenne"];
@@ -67,6 +67,7 @@ if (year === 0){
     var fauxYear = -18 - Math.floor(Math.random() * 10)
     var gendOverwrite = i % 2;
     newPerson(false, fauxYear, gendOverwrite);
+    console.log(people[i], i)
     if (i % 2 === 1){
       people[i].spouse = i-1;
     } else{

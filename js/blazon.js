@@ -1,4 +1,5 @@
-
+var fields = [];
+var shields = [];
 function coatColors(tincture){
   return { 
     "argent": "#FFFFFF",
@@ -11,6 +12,13 @@ function coatColors(tincture){
     "tenne": "#C67000",
   }[tincture];
 }
+//Gen 1 - Ordinary shapes
+//Gen 2 - Ordinary colors
+//Gen 3 - Ordinary edges
+//   indented, dancetty, wavy, nebuly, engrailed, invected, embattled, embattled-counter-embattled, raguly, dovetailed, 
+// potenty, nowy, (fesses and pale) arched and double arched (pale has normal AND sinister), bevilled and angled, lozengy, 
+//Gen 4 cotticed colors, wavy, 
+
 function blazon(person){
   var tincture = person.tincture;
   var charges = person.charges;
@@ -34,7 +42,13 @@ function blazon(person){
   }
   return blazon;
 }
-
+function newShield(){
+  var newField = {
+    tincture: "",
+    charges: "",
+    ordinaries: "",
+  }
+}
 function calculateBlazon(child, father){
   child.tincture = father.tincture;
   child.ordinaries = [...father.ordinaries];

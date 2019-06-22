@@ -22,13 +22,16 @@ function newPerson(mother, year, gendOverwrite){
     mother: -1, 
     spouse: -1,
     generation: 0,
+    
     tincture: "",
     ordinaries: [],
     charges: [],
     sons: [],
     daughters: [],
     rank: -1,
-    estate: -1};
+    estate: -1,
+    genes: {eyeColor: [], hairColor: []}
+  };
   
   // is it a starter or does it have parents?
   if (mother){
@@ -58,7 +61,8 @@ function newPerson(mother, year, gendOverwrite){
 
   //rank
   calculateRank(newPerson, people[newPerson.father], people[newPerson.mother]);
-
+  //mendel
+  mendel(newPerson);
   //finish newPerson
   people.push(newPerson);
 }

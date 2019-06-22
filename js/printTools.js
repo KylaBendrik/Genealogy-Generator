@@ -18,6 +18,7 @@ function printPeople(tbody, people){
       var cellEstate = document.createElement('td');
       var cellCoat = document.createElement('td');
       var cellChildren = document.createElement('td');
+      var cellGenes = document.createElement('td');
       
       //fill cells
       cellGen.appendChild(document.createTextNode(person.generation));
@@ -36,6 +37,7 @@ function printPeople(tbody, people){
       }
       
       cellChildren.appendChild(document.createTextNode(printChildren(person)));
+      cellGenes.appendChild(document.createTextNode(printEyes(person) + ", " + printHair(person)));
       
       //append cells
       row.appendChild(cellGen);
@@ -49,6 +51,7 @@ function printPeople(tbody, people){
       row.appendChild(cellEstate);
       row.appendChild(cellCoat);
       row.appendChild(cellChildren);
+      row.appendChild(cellGenes);
       
       newTbody.appendChild(row);
     }
