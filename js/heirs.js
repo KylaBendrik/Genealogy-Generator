@@ -18,10 +18,8 @@ function findHeir(person){
     }
   }
   if (person.spouse > -1){
-    console.log("wife is heir: " + person.spouse);
     return person.spouse
   }
-  console.log("There is no heir")
 }
 
 
@@ -33,7 +31,6 @@ function inherit(person){
     var kingsEstate = findKingsEstate()
     //if kingsEstate IS the estate being messed up, assign to highest ranking lord
     if (kingsEstate.id === estate.id){
-      console.log("king died with no heir")
       kingsEstate = findEstateByRank(2);
       raiseRank(people[kingsEstate.lord]);
       raiseRank(people[kingsEstate.lord]);
@@ -54,10 +51,8 @@ function inherit(person){
         heir.charges.splice(0)
       }
       if (heir.spouse === person.id){
-        console.log("as spouse, rank is not raised");
       }else{
         //raise rank
-        console.log(heir.name + " should raise rank")
         raiseRank(heir)
       }
       //estates - if there's only one son, or some other heir, then just assign. Otherwise, split estate

@@ -16,6 +16,10 @@ function printPeople(tbody, people){
       var cellMother = document.createElement('td');
       var cellSpouse = document.createElement('td');
       var cellEstate = document.createElement('td');
+
+      var coatSample = document.createElement('span');
+      coatSample.className = 'coatSample'
+
       var cellCoat = document.createElement('td');
       var cellChildren = document.createElement('td');
       var cellGenes = document.createElement('td');
@@ -30,11 +34,12 @@ function printPeople(tbody, people){
       cellMother.appendChild(document.createTextNode(personName(person, person.mother)));
       cellSpouse.appendChild(document.createTextNode(personName(person, person.spouse) + " (" + person.spouse +")"));
       cellEstate.appendChild(document.createTextNode(printEstate(person)));
+
+      
+      cellCoat.appendChild(coatSample);
       cellCoat.appendChild(document.createTextNode(printBlazon(person)));
-      cellCoat.style.backgroundColor = coatColors(person.coat.background);
-      if (person.coat.background[0] === "sable" || person.coat.background[0] === "azure" || person.coat.background[0] === "purpure"){
-        cellCoat.style.color = "white";
-      } //https://css-tricks.com/stripes-css/
+      cellBackground(coatSample, person)
+      
       
       cellChildren.appendChild(document.createTextNode(printChildren(person)));
       cellGenes.appendChild(document.createTextNode(printEyes(person) + ", " + printHair(person)));

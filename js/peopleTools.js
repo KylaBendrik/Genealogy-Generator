@@ -35,7 +35,6 @@ function parentage(person){
   }
 }
 function raiseRank(person){
-  console.log(person);
   if (person.sons.length > 0){
     for (i = 0; i < person.sons.length; i++){
       raiseRank(people[person.sons[i]]);
@@ -57,16 +56,13 @@ function calculateRank(person, father, mother){
 
 function die(person){
   //person is no longer alive
-  console.log("person is no longer alive");
   person.alive = false;
   
   //person's heir should inherit title and shield
-  console.log(person.name + "'s heir should inherit");
   inherit(person);
   //person's spouse is now unmarried
   if (person.spouse >  -1){
     people[person.spouse].spouse = -1;
-    console.log("person's spouse is now unmarried")
   }
 
 }

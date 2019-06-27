@@ -61,7 +61,7 @@ function nextYear(n){
 const numStart = 8;
 const consangLimit = numStart/4;
 
-const tinctures = ["argent", "or", "gules", "sable", "azure", "vert", "purpure", "tenne"];
+const tinctures = ["argent", "gules", "sable", "azure", "vert", "purpure", "tenne", "bleu-céleste"];
 if (year === 0){
   for(i = 0; i  < numStart; i++){
     var fauxYear = -18 - Math.floor(Math.random() * 10)
@@ -79,7 +79,7 @@ if (year === 0){
     if (i > 1){
       people[i].rank = 2;
     }
-    people[i].coat.background.push(tinctures[Math.floor(i/2)]);
+    people[i].coat.background = {type: "tincture", value: tinctures[Math.floor(i/2)]};
   }
   year ++;
   console.log("people should be set")

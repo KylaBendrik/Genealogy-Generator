@@ -21,7 +21,7 @@ function newPerson(mother, year, gendOverwrite){
     mother: -1, 
     spouse: -1,
     generation: 0,
-    coat: {background: [], ordinaries: [], charges: []},
+    coat: {background: {type: "undefined"}, ordinaries: [], charges: []},
     sons: [],
     daughters: [],
     rank: -1,

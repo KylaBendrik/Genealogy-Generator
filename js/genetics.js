@@ -10,7 +10,6 @@ function oc(a){
 }
 
 function printEyes(person){
-  console.log (person.genes.eyeColor)
   //bRown > Green > bLue > Violet
   if (person.genes.eyeColor.includes("r")){
     return "Brown Eyes";
@@ -59,13 +58,11 @@ function mendel(person){
    for( n = 0; n < 2; n++){
       var rand = Math.floor(Math.random() * eyesLength)
       person.genes.eyeColor.push(eyeColors[rand])
-      console.log(eyeColors[rand])
     }
     var hairLength = hairColors.length
     for( n = 0; n < 2; n++){
        var rand = Math.floor(Math.random() * hairLength)
        person.genes.hairColor.push(hairColors[rand])
-       console.log(hairColors[rand])
      }
   } else {
     //calculate
