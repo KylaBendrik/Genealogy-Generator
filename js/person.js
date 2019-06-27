@@ -1,7 +1,5 @@
 var year = 0;
 var people = [];
-const maleNames = ["Adam", "Nicholas", "Simon", "Geoffrey", "Peter", "Thomas", "Gilbert", "Ralf", "Walter", "Henry", "Richard", "William", "James", "John", "Matthew", "Joseph", "Luke", "Marcus", "Joshua", "Michael" ];
-const femaleNames = ["Agnes", "Alice", "Anna", "Anne","Beatrice", "Isabella", "Joan", "Juliana", "Margery", "Catherine", "Michelle", "Annabelle", "Julia", "Mary", "Martha", "Elizabeth", "Rose", "Victoria"];
 const titles = [
   {male: "King", female: "Queen"},
   {male: "Prince", female: "Princess"},
@@ -15,6 +13,7 @@ function newPerson(mother, year, gendOverwrite){
   var newPerson = {
     id: people.length,
     name: "", 
+    nameMeaning: "",
     birth: year, 
     gender:"", 
     alive:true, 
@@ -51,11 +50,11 @@ function newPerson(mother, year, gendOverwrite){
   //gender specifics
   if (gendNum === 0){
     newPerson.gender = "male";
-    newPerson.name = maleNames[Math.floor(Math.random()*maleNames.length)];
+    newName(newPerson);
     parentage(newPerson);
   } else {
     newPerson.gender = "female";
-    newPerson.name =  femaleNames[Math.floor(Math.random()*femaleNames.length)];;
+    newName(newPerson);
     parentage(newPerson);
   }
 
