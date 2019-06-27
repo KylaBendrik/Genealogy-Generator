@@ -17,12 +17,12 @@ function nextYear(n){
           die(person)
         }
        //make feet for baby shoes
-       var ifBaby = Math.floor(Math.random() * 6);
+       var ifBaby = Math.floor(Math.random() * 2);
        if (person.spouse >  -1 
            && person.gender === "female" 
            && age(person) < 50){
          if (ifBaby === 0){
-           newPerson(person, year);
+           newPerson(person, year, 0);
          }
        } //ending making babies
        //gettin hitched

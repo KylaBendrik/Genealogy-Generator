@@ -17,9 +17,10 @@ function treatments(length){
     1: "",
     2: "lozengy",
     3: "fretty",
+    4: "crusilly",
   }[length];
 }
-//Gen 1 - treatments & furs (lozengy, fretty, scaly, masoned, honeycombed, crusilly, anuletty, fleury, )
+//Gen 1 - treatments & furs (lozengy, fretty, crusilly, scaly, masoned, honeycombed, anuletty, fleury, )
 //Gen 1 - Ordinary shapes
 //Gen 2 - Ordinary colors
 //Gen 3 - Ordinary edges
@@ -73,15 +74,25 @@ function cellBackground(cellCoat, person){
         cellCoat.style.backgroundColor = coatColors(mainColor);
         cellCoat.style.backgroundImage = `repeating-linear-gradient(45deg, ${coatColors(secondColor)}, ${coatColors(secondColor)} 3px, transparent 3px, transparent 15px),
         repeating-linear-gradient(315deg, ${coatColors(secondColor)}, ${coatColors(secondColor)} 3px, transparent 3px, transparent 15px)`;
-        cellCoat.style.backgroundSize = `25px 25px`;
+        cellCoat.style.backgroundSize = `21px 21px`;
       } else {
-        cellCoat.style.background = `repeating-linear-gradient(
-          45deg,
-          ${coatColors(mainColor)},
-          ${coatColors(mainColor)} 17px,
-          ${coatColors(secondColor)} 3px,
-          ${coatColors(secondColor)} 20px
-        )`;
+        if (person.coat.background.style === "crusilly"){
+          cellCoat.style.backgroundColor = coatColors(mainColor);
+          cellCoat.style.backgroundImage = `
+          radial-gradient(circle, transparent 25%, ${coatColors(mainColor)} 25%, ${coatColors(mainColor)} 75%, transparent 75%, transparent),
+          radial-gradient(circle, transparent 25%, ${coatColors(mainColor)} 25%, ${coatColors(mainColor)} 75%, transparent 75%, transparent) 25px 25px,
+          linear-gradient(${coatColors(secondColor)} 4px, transparent 4px) 0 -2px,
+          linear-gradient(90deg, ${coatColors(secondColor)} 4px, transparent 4px) -2px 0`;
+          cellCoat.style.backgroundSize = `50px 50px, 50px 50px, 25px 25px, 25px 25px`;
+        } else {
+          cellCoat.style.background = `repeating-linear-gradient(
+            45deg,
+            ${coatColors(mainColor)},
+            ${coatColors(mainColor)} 17px,
+            ${coatColors(secondColor)} 3px,
+            ${coatColors(secondColor)} 20px
+          )`;
+        }
       }
     }
   }
