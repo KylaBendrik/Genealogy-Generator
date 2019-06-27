@@ -30,11 +30,11 @@ function printPeople(tbody, people){
       cellMother.appendChild(document.createTextNode(personName(person, person.mother)));
       cellSpouse.appendChild(document.createTextNode(personName(person, person.spouse) + " (" + person.spouse +")"));
       cellEstate.appendChild(document.createTextNode(printEstate(person)));
-      cellCoat.appendChild(document.createTextNode(blazon(person)));
-      cellCoat.style.backgroundColor = coatColors(person.tincture);
-      if (person.tincture === "sable" || person.tincture === "azure" || person.tincture === "purpure"){
+      cellCoat.appendChild(document.createTextNode(printBlazon(person)));
+      cellCoat.style.backgroundColor = coatColors(person.coat.background);
+      if (person.coat.background[0] === "sable" || person.coat.background[0] === "azure" || person.coat.background[0] === "purpure"){
         cellCoat.style.color = "white";
-      }
+      } //https://css-tricks.com/stripes-css/
       
       cellChildren.appendChild(document.createTextNode(printChildren(person)));
       cellGenes.appendChild(document.createTextNode(printEyes(person) + ", " + printHair(person)));

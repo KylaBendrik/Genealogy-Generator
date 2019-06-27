@@ -79,7 +79,7 @@ if (year === 0){
     if (i > 1){
       people[i].rank = 2;
     }
-    people[i].tincture = tinctures[Math.floor(i/2)];
+    people[i].coat.background.push(tinctures[Math.floor(i/2)]);
   }
   year ++;
   console.log("people should be set")
