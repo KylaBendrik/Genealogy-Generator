@@ -77,13 +77,15 @@ function cellBackground(cellCoat, person){
         cellCoat.style.backgroundSize = `21px 21px`;
       } else {
         if (person.coat.background.style === "crusilly"){
-          cellCoat.style.backgroundColor = coatColors(mainColor);
-          cellCoat.style.backgroundImage = `
-          radial-gradient(circle, transparent 25%, ${coatColors(mainColor)} 25%, ${coatColors(mainColor)} 75%, transparent 75%, transparent),
-          radial-gradient(circle, transparent 25%, ${coatColors(mainColor)} 25%, ${coatColors(mainColor)} 75%, transparent 75%, transparent) 25px 25px,
+          console.log("crusilly")
+          cellCoat.style.background = `radial-gradient(circle, transparent 30%, ${coatColors(mainColor)} 30%, ${coatColors(mainColor)} 70%, transparent 70%, transparent),
+          radial-gradient(circle, transparent 30%, ${coatColors(mainColor)} 30%, ${coatColors(mainColor)} 70%, transparent 70%, transparent) 15px 15px,
           linear-gradient(${coatColors(secondColor)} 4px, transparent 4px) 0 -2px,
-          linear-gradient(90deg, ${coatColors(secondColor)} 4px, transparent 4px) -2px 0`;
-          cellCoat.style.backgroundSize = `50px 50px, 50px 50px, 25px 25px, 25px 25px`;
+          linear-gradient(90deg, ${coatColors(secondColor)} 4px, transparent 4px) -2px 0`;    
+          cellCoat.style.backgroundColor = coatColors(mainColor);
+          cellCoat.style.backgroundSize = `30px 30px, 30px 30px, 15px 15px, 15px 15px`;
+          
+          console.log(cellCoat.style.backgroundImage)
         } else {
           cellCoat.style.background = `repeating-linear-gradient(
             45deg,

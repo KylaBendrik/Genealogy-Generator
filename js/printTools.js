@@ -88,7 +88,7 @@ estates.forEach((estate) =>{
     //fill cells
     cellEstate.appendChild(document.createTextNode(estate.name));
     cellLord.appendChild(document.createTextNode(title(people[estate.lord]) + " " + people[estate.lord].name));
-    cellHeir.appendChild(document.createTextNode(estate.heir));
+    cellHeir.appendChild(document.createTextNode(title(people[estate.heir]) + " " + people[estate.heir].name));
     cellAcreage.appendChild(document.createTextNode(estate.acreage));
     
     //append cells

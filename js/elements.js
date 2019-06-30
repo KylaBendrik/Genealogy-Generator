@@ -64,4 +64,3 @@ const elements = [
   {name:"bord", meaning:"board", gender:["male"], part: [1,2]},
   {name:"borg", meaning:"castle", gender:["male"], part: [1,2]},
   {name:"bot", meaning:"remedy", gender:["male", "female"], part: [1]},
-];
